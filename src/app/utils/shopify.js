@@ -1,26 +1,64 @@
-import { default as fetch } from 'node-fetch';
+const domain = process.env.SHOPIFY_API_ENDPOINT;
+const storefrontAccessToken = process.env.SHOPIFY_STOREFRONT_API_TOKEN;
 
-export const postToShopify = async ({ query, variables = {} }) => {
+async function ShopifyData(query) {
+	const URL = `https://${domain}/api/2023-04/graphql.json`;
+
+	const options = {
+		endpoint: URL,
+		method: 'POST',
+		headers: {
+			'X-Shopify-Storefront-Access-Token': storefrontAccessToken,
+			Accept: 'application/json',
+			'Content-Type': 'application/json',
+		},
+		body: JSON.stringify({ query }),
+	};
+
 	try {
-		const result = await fetch(process.env.SHOPIFY_API_ENDPOINT, {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json',
-				'X-Shopify-Storefront-Access-Token':
-					process.env.SHOPIFY_STOREFRONT_API_TOKEN,
-			},
-			body: JSON.stringify({ query, variables }),
-		}).then((res) => res.json());
+		const data = await fetch(URL, options).then((response) => {
+			return response.json();
+		});
 
-		if (result.errors) {
-			console.log({ errors: result.errors });
-		} else if (!result || !result.data) {
-			console.log({ result });
-			return 'No results found.';
-		}
-
-		return result.data;
+		return data;
 	} catch (error) {
-		console.log(error);
+		throw new Error('Products not fetched');
 	}
-};
+}
+
+export async function getAllProducts() {
+	const query = `
+  {
+  products(first: 35) {
+    edges {
+      node {
+        id
+        title
+        handle
+        priceRange {
+          minVariantPrice {
+            amount
+          }
+        }
+        images(first: 5) {
+          edges {
+            node {
+              originalSrc
+              altText
+            }
+          }
+        }
+      }
+    }
+  }
+}
+`;
+
+	const response = await ShopifyData(query);
+
+	const allProducts = response.data.products.edges
+		? response.data.products.edges
+		: [];
+
+	return allProducts;
+}

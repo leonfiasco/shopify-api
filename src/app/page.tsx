@@ -1,22 +1,25 @@
-import Head from 'next/head';
-import Image from 'next/image';
-import styles from './home.module.scss';
+import { getAllProducts } from './utils/shopify';
 
-export default function Home() {
+export default async function Home() {
+	const data = await getAllProducts();
+	const renderProducts = () => {
+		return (
+			data &&
+			data.map((val) => {
+				const { id, title } = val.node;
+				return (
+					<li key={id}>
+						<p>{title}</p>
+					</li>
+				);
+			})
+		);
+	};
+
+	renderProducts();
 	return (
-		<div className={styles.container}>
-			<Head>
-				<title>Learning Shopify Api</title>
-				<meta name='description' content='Please give some bread' />
-			</Head>
-			<main className={styles.main}>
-				<h1>Store Mephaasixe</h1>
-				<div className={styles.products}>
-					{/* 
-					Add products
-					*/}
-				</div>
-			</main>
+		<div className='bg-white'>
+			<ul>{renderProducts()}</ul>
 		</div>
 	);
 }
