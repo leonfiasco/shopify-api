@@ -1,0 +1,95 @@
+@font-face {
+	font-family: mundail;
+	src: url('../../../static/fonts/MundialThin.otf') format('opentype');
+	font-weight: normal;
+	font-style: normal;
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+.navbar {
+	background-color: #f3eee8;
+	padding: 28px 40px;
+	display: flex;
+	justify-content: space-between;
+	position: fixed;
+	width: 100%;
+	z-index: 20;
+	.navLeft,
+	.navRight {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		width: 420px;
+		p {
+			cursor: pointer;
+			font-size: 11px;
+			font-family: mundail;
+			text-transform: capitalize;
+		}
+
+		.menuWrap {
+			width: 65px;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			.burgerContainer {
+				display: flex;
+				position: relative;
+				z-index: 1000;
+				.hamburger {
+					cursor: pointer;
+					position: relative;
+					display: block;
+					align-items: center;
+					justify-content: center;
+					z-index: 3;
+					width: 20px;
+					height: 8px;
+					background: transparent;
+					line-height: 30px;
+					outline: none;
+					transform: rotate(0deg);
+					transition: 0.5s ease-in-out;
+					padding: 0;
+					margin: 0;
+					border-radius: 9px;
+					border: none;
+					span {
+						display: block;
+
+						position: absolute;
+						height: 1px;
+						width: 100%;
+						opacity: 1;
+						background: black;
+						transform: rotate(0deg);
+						transition: 0.25s ease-in-out;
+					}
+					& span:nth-child(1) {
+						top: 0;
+					}
+					& span:nth-child(2) {
+						top: 8px;
+					}
+					& span:nth-child(3) {
+						top: 16px;
+					}
+					&.active span {
+						position: relative;
+						background: black;
+					}
+					&.active span:nth-child(1) {
+						transform: rotate(-45deg);
+						// top: 10px;
+					}
+					&.active span:nth-child(2) {
+						transform: rotate(45deg);
+						top: -1px;
+					}
+				}
+			}
+		}
+	}
+}

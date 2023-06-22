@@ -1,6 +1,8 @@
+// @useClient
 import './globals.scss';
 import { Inter } from 'next/font/google';
-import Navbar from './components/Navbar/Navbar';
+import BurgerMenu from './components/SiteHeader/BurgerMenu';
+import { NavDrawProvider } from '../../store/navDrawContext';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
@@ -16,8 +18,10 @@ export default function RootLayout({
 	return (
 		<html lang='en'>
 			<body className={inter.className}>
-				<Navbar />
-				{children}
+				<NavDrawProvider>
+					<BurgerMenu />
+					{children}
+				</NavDrawProvider>
 			</body>
 		</html>
 	);
