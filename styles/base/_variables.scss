@@ -1,0 +1,221 @@
+// ==========================================================================
+// Base – Colour Variables
+// ==========================================================================
+$mintGreen: #22c196;
+$black: #000;
+
+// ==========================================================================
+// Base –  layout
+// ==========================================================================
+
+// Breakpoint Variables
+$breakMobile: 0; //320px
+$breakLargeMobile: 500px;
+$breakTablet: 740px;
+$breakDesktop: 1020px;
+$breakHd: 1460px;
+
+// max container width
+$containerMaxWidth: 1550px; //1500px
+
+// Container Variables
+$containerMobile: 258px; // 100%
+$containerLargeMobile: 480px; //480px
+$containerTablet: 720px; // 720px
+$containerDesktop: 1000px; //1000px
+$containerHd: 1440px; //1440px
+
+// Container gutters
+$containerGutterMobile: 0;
+$containerGutterLargeMobile: 0;
+$containerGutterTablet: 0;
+$containerGutterDesktop: 0;
+$containerGutterHd: 0;
+
+// Container Full gutters
+$containerFullGutterMobile: 6px;
+$containerFullGutterLargeMobile: 16px;
+$containerFullGutterTablet: 25px;
+$containerFullGutterDesktop: 25px;
+$containerFullGutterHd: 25px;
+
+// Grid gutters
+$gutterMobile: 10px;
+$gutterLargeMobile: 12px;
+$gutterTablet: 20px;
+$gutterDesktop: 30px;
+$gutterHd: 30px;
+
+// Row gutters
+$rowGutterMobile: 10px;
+$rowGutterLargeMobile: 12px;
+$rowGutterTablet: 20px;
+$rowGutterDesktop: 30px;
+$rowGutterHd: 30px;
+
+// ==========================================================================
+// Base – Typorgaphy & Global Variables
+// ==========================================================================
+
+// Fonts
+$mundial: 'mundial';
+$mundialBold: 'mundialBold';
+
+// Global Vars
+$baseFontFamily: $mundial; // may not need this
+$baseFontFamilyBold: $mundialBold;
+$baseFontSize: 14;
+$baseLineHeight: 21;
+$baseLetterSpacingSize: 0;
+$baseFontWeight: 400;
+$baseFontWeightBold: 400;
+$baseFontColor: $black;
+$baseBackgroundColor: #fff;
+
+// ==========================================================================
+// Base – Buttons Variables
+// ==========================================================================
+
+// Normal
+$btnFontFamily: $mundial;
+$btnTextTransform: none;
+// $btnFontSizes: 14;
+// $btnLineHeight: 16;
+// $btnLetterSpacingSize: 0;
+$btnBorder: 1px solid $black;
+$btnRadius: 30px;
+// $btnPadding: 12px;
+$btnColor: #fff;
+$btnBackground: $black;
+// Hover
+$btnHoverColor: #fff;
+$btnHoverBgColor: $black;
+$btnHoverBorder: 1px solid $black;
+//active
+$btnActiveColor: #fff;
+$btnActiveBgColor: $black;
+$btnActiveBorder: 1px solid $black;
+//focus
+$btnFocusColor: $black;
+$btnFocusBgColor: $black;
+$btnFocusBorder: 1px solid $black;
+// Disabled
+$btnDisabledColor: #fff;
+$btnDisabledBgColor: $black;
+$btnDisabledBorder: 1px solid $black;
+
+// ==========================================================================
+// Base – Link Variables
+// ==========================================================================
+
+$linkColor: $black;
+$linkFontFamily: $baseFontFamily;
+$linkHoverColor: $black;
+$linkTextDecoration: none;
+
+// ==========================================================================
+// Base – Forms Variables
+// ==========================================================================
+
+// Labels
+// ==========================================================================
+$baseInputLabelFamily: $mundial;
+$baseInputLabelFontSize: 14;
+$baseInputLabelLineHeight: 14;
+$baseInputLabelLetterSpacingSize: $baseLetterSpacingSize;
+$baseInputLabelPaddingMobile: 0 0 12px;
+$baseInputLabelPaddingMobileLarge: 0 0 12px;
+$baseInputLabelPaddingTablet: 0 0 12px;
+$baseInputLabelPaddingDesktop: 0 0 12px;
+$baseInputLabelPaddingHd: 0 0 12px;
+
+// Inputs
+// ==========================================================================
+$baseInputFamily: $mundial;
+$baseInputFontSize: 12;
+$baseInputLineHeight: 12;
+$baseInputLetterSpacingSize: $baseLetterSpacingSize;
+$baseInputHeight: auto;
+$baseInputPaddingMobile: 10px 15px 10px 15px;
+$baseInputPaddingMobileLarge: 10px 15px 10px 15px;
+$baseInputPaddingTablet: 10px 15px 10px 15px;
+$baseInputPaddingDesktop: 15px 18px 15px 18px;
+$baseInputPaddingDHd: 15px 18px 15px 18px;
+// Textarea Border
+// ==========================================================================
+$baseTextareaLineHeight: 16; // 18
+// Input Border
+// ==========================================================================
+$baseInputRadius: 0px;
+$baseInputBorder: 5px solid rgba(red, 1);
+$baseInputBorderFocus: 5px solid rgba(red, 1);
+// input colour
+// ==========================================================================
+$baseInputPlaceholderColor: $black;
+$baseInputColor: $black;
+// Input bacckgroud colour
+// ==========================================================================
+$baseInputBackgroundColor: #fff;
+$baseInputBackgroundFocusColor: #fff;
+// From class
+// ==========================================================================
+$formGroupTitleFontFamily: $baseFontFamily;
+$formGroupTitleColour: $black;
+// Input error
+// ==========================================================================
+$formErrorFamily: $baseFontFamily;
+$formErrorFontSize: 10;
+$formErrorLineHeight: 10;
+$formErrorLetterSpacingSize: $baseLetterSpacingSize;
+$formErrorColor: $black;
+$submissionErrorColor: $black;
+// Form Layout
+// ==========================================================================
+$formLayoutMarginBottomMobile: 15px;
+$formLayoutMarginLargeMobile: 15px;
+$formLayoutMarginTablet: 17px;
+$formLayoutMarginDesktop: 20px;
+$formLayoutMarginDHd: 20px;
+//field Checkbox
+// ==========================================================================
+$fieldCheckboxLabelColor: baseInputColor;
+$fieldCheckboxBorder: 1px solid $baseInputColor;
+$fieldCheckboxBgColor: $black;
+$fieldCheckboxBgColorActive: $black;
+$fieldCheckboxSizes: 10px;
+$fieldCheckboxLeft: 10px;
+$fieldCheckboxTop: -1px;
+$fieldCheckboxPaddingMobile: 0 0 0 35px;
+$fieldCheckboxMarginMobile: 9px 0 10px;
+// $fieldCheckboxPaddingLargeMobile: 0 0 0 35px;
+// $fieldCheckboxMarginLargeMobile:9px 0 10px;
+$fieldCheckboxPaddingTablet: 0 0 0 35px;
+$fieldCheckboxMarginTablet: 12px 0 13px;
+// $fieldCheckboxPaddingTablet: 0 0 0 35px;
+// $fieldCheckboxMarginTablet: 9px 0 10px;
+// $fieldCheckboxPaddingDesktop: 0 0 0 35px;
+// $fieldCheckboxMarginDesktop: 9px 0 10px;
+// $fieldCheckboxPaddingHd: 0 0 0 35px;
+// $fieldCheckboxMarginHd: 9px 0 10px;
+
+// field Radio
+// ==========================================================================
+$fieldRadioLabelColor: baseInputColor;
+$fieldRadioBorder: 1px solid $baseInputColor;
+$fieldRadioBgColor: #fff;
+$fieldRadioBgColorActive: $black;
+$fieldRadioSizes: 10px;
+$fieldRadioLeft: 10px;
+$fieldRadioTop: -3px;
+$fieldRadioPaddingMobile: 0 0 0 35px;
+$fieldRadioMarginMobile: 9px 0 10px;
+// $fieldRadioPaddingLargeMobile: 0 0 0 35px;
+// $fieldRadioMarginLargeMobile:9px 0 10px;
+$fieldRadioPaddingTablet: 0 0 0 35px;
+$fieldRadioMarginTablet: 12px 0 13px;
+// $fieldRadioPaddingTablet: 0 0 0 35px;
+// $fieldRadioMarginTablet: 9px 0 10px;
+// $fieldRadioPaddingDesktop: 0 0 0 35px;
+// $fieldRadioMarginDesktop: 9px 0 10px;
+// $fieldRadioPaddingHd: 0 0 0 35px;
+// $fieldRadioMarginHd: 9px 0 10px;

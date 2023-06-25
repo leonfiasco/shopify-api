@@ -2,6 +2,7 @@
 import './globals.scss';
 import { Inter } from 'next/font/google';
 import BurgerMenu from './components/SiteHeader/BurgerMenu';
+import SiteFooter from './components/SiteFooter';
 import { NavDrawProvider } from '../../store/navDrawContext';
 const inter = Inter({ subsets: ['latin'] });
 
@@ -21,6 +22,7 @@ export default function RootLayout({
 				<NavDrawProvider>
 					<BurgerMenu />
 					{children}
+					<SiteFooter />
 				</NavDrawProvider>
 			</body>
 		</html>

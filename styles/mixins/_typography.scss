@@ -1,0 +1,63 @@
+// ==========================================================================
+// ENT – Mixins - Typography
+// ==========================================================================
+@use 'sass:math';
+
+// ==========================================================================
+// ent- Globel type setting mixins
+// ==========================================================================
+
+// Typeographys: font-size-line-height
+@mixin font-size-line-height(
+	$fontSize,
+	$multiplySizes,
+	$lineHeight,
+	$multiplyHeight
+) {
+	// font-size
+	$equals: $fontSize * $multiplySizes;
+	@include font-size($equals);
+	//line-height
+	$equals: $lineHeight * $multiplyHeight;
+	@include line-height($equals);
+}
+
+// Tytpography: letter-spacing
+@mixin letter-spacing($letterSpacingSize, $multiplyLetterSpacingSizes) {
+	$equals: $letterSpacingSize * $multiplyLetterSpacingSizes;
+	letter-spacing: $equals + px;
+}
+
+// Font sizes (primary sizing in `rem` units with a fallback of `px`)
+// Example usage @include font-size(18);
+@mixin font-size($size) {
+	$remValue: math.div($size, 16);
+	$pxValue: ($size);
+	font-size: $pxValue + px;
+	font-size: $remValue + rem;
+}
+
+// Line height sizes (primary sizing in `rem` units with a fallback of `px`)
+// Example usage @include line-height(22);
+@mixin line-height($size) {
+	$remValue: math.div($size, 16);
+	$pxValue: ($size);
+	line-height: $pxValue + px;
+	line-height: $remValue + rem;
+}
+
+// ==========================================================================
+// item-title-type-setting
+// ==========================================================================
+@mixin item-type-setting($fontSize, $lineHeight, $letterSpacingSize) {
+	$multiplySizes: 1;
+	$multiplyHeight: 1;
+	$multiplyLetterSpacingSizes: 1;
+	@include font-size-line-height(
+		$fontSize,
+		$multiplySizes,
+		$lineHeight,
+		$multiplyHeight
+	);
+	@include letter-spacing($letterSpacingSize, $multiplyLetterSpacingSizes);
+}

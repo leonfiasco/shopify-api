@@ -1,0 +1,8 @@
+@mixin noScroll {
+	html.no-scroll,
+	body.no-scroll {
+		// overflow: hidden;
+		position: relative;
+		height: 100%;
+	}
+}

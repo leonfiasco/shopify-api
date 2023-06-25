@@ -1,0 +1,110 @@
+// ==========================================================================
+//  Grid Resposive
+// ==========================================================================
+@mixin gridResponsive($coloumns, $withRowGap: false) {
+	display: grid;
+	grid-template-columns: repeat(#{$coloumns}, 1fr);
+	@media (min-width: $breakMobile) {
+		grid-column-gap: $gutterMobile;
+		@if $withRowGap {
+			grid-row-gap: $rowGutterMobile;
+		}
+	}
+	@media (min-width: $breakLargeMobile) {
+		grid-column-gap: $gutterLargeMobile;
+		@if $withRowGap {
+			grid-row-gap: $rowGutterLargeMobile;
+		}
+	}
+	@media (min-width: $breakTablet) {
+		grid-column-gap: $gutterTablet;
+		@if $withRowGap {
+			grid-row-gap: $rowGutterTablet;
+		}
+	}
+	@media (min-width: $breakDesktop) {
+		grid-column-gap: $gutterDesktop;
+		@if $withRowGap {
+			grid-row-gap: $rowGutterDesktop;
+		}
+	}
+	@media (min-width: $breakHd) {
+		grid-column-gap: $gutterHd;
+		@if $withRowGap {
+			grid-row-gap: $rowGutterHd;
+		}
+	}
+}
+
+// ==========================================================================
+//  Container Resposive
+// ==========================================================================
+@mixin containerResponsiveNew($containerFull: true) {
+	margin-left: auto;
+	margin-right: auto;
+	@media (min-width: $breakMobile) {
+		// background: red;
+		@if $containerFull {
+			width: 100%;
+			max-width: $containerMaxWidth;
+			padding-left: $containerFullGutterMobile;
+			padding-right: $containerFullGutterMobile;
+		} @else {
+			padding-left: $containerGutterMobile;
+			padding-right: $containerGutterMobile;
+			max-width: $containerMobile;
+		}
+	}
+	@media (min-width: $breakLargeMobile) {
+		// background: green;
+		@if $containerFull {
+			width: 100%;
+			max-width: $containerMaxWidth;
+			padding-left: $containerFullGutterLargeMobile;
+			padding-right: $containerFullGutterLargeMobile;
+		} @else {
+			max-width: $containerLargeMobile;
+			padding-left: $containerGutterLargeMobile;
+			padding-right: $containerGutterLargeMobile;
+		}
+	}
+	@media (min-width: $breakTablet) {
+		// background: blue;
+		@if $containerFull {
+			width: 100%;
+			max-width: $containerMaxWidth;
+			padding-left: $containerFullGutterTablet;
+			padding-right: $containerFullGutterTablet;
+		} @else {
+			max-width: $containerTablet;
+			padding-left: $containerGutterTablet;
+			padding-right: $containerGutterTablet;
+		}
+	}
+	@media (min-width: $breakDesktop) {
+		// background: pink;
+		@if $containerFull {
+			width: 100%;
+			max-width: $containerMaxWidth;
+			padding-left: $containerFullGutterDesktop;
+			padding-right: $containerFullGutterDesktop;
+		} @else {
+			max-width: $containerDesktop;
+			padding-left: $containerGutterDesktop;
+			padding-right: $containerGutterDesktop;
+		}
+	}
+	@media (min-width: $breakHd) {
+		// background: yellow;
+		@if $containerFull {
+			width: 100%;
+			max-width: $containerMaxWidth;
+			padding-left: $containerFullGutterHd;
+			padding-right: $containerFullGutterHd;
+		} @else {
+			max-width: $containerHd;
+			padding-left: $containerGutterHd;
+			padding-right: $containerGutterHd;
+		}
+	}
+}
