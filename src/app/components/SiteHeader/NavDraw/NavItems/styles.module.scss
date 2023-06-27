@@ -1,0 +1,59 @@
+@import '../../../../../../styles/base/variables';
+@import '../../../../../../styles/mixins/layout';
+
+.navList {
+	.listItem {
+		list-style: none;
+		div {
+			display: flex;
+			justify-content: space-between;
+			width: 250px;
+			p {
+				margin-right: 50px;
+				text-transform: capitalize;
+				cursor: pointer;
+				color: #7d7c7d;
+			}
+
+			.upArrow,
+			.active {
+				cursor: pointer;
+			}
+
+			.upArrow {
+				transition: transform 0.3s ease;
+				transform: rotate(0deg);
+			}
+
+			.active {
+				transform: rotate(180deg);
+			}
+		}
+		.subList {
+			padding-top: 20px;
+			padding-left: 30px;
+			max-height: 0;
+			overflow: hidden;
+			transition: all 0.5s cubic-bezier(0, 1, 0, 1);
+			li {
+				list-style: none;
+				padding-bottom: 5px;
+				font-size: 14px;
+				color: #7d7c7d;
+				text-transform: capitalize;
+			}
+
+			li:not(:last-child) {
+				padding-bottom: 10px;
+			}
+
+			&.openSublist {
+				max-height: 1000px;
+			}
+		}
+	}
+
+	li:not(:last-child) {
+		padding-bottom: 35px;
+	}
+}

@@ -1,12 +1,4 @@
-@font-face {
-	font-family: mundail;
-	src: url('../../static/fonts/MundialThin.otf') format('opentype');
-	font-weight: normal;
-	font-style: normal;
-	font-weight: 400;
-	font-style: normal;
-	font-display: swap;
-}
+@import '../../../../styles/base/variables';
 
 .bannerContainer {
 	margin-top: 95px;
@@ -22,7 +14,7 @@
 				p {
 					color: #7b7a77;
 					font-size: 11px;
-					font-family: mundail;
+					font-family: $mundial;
 					text-transform: capitalize;
 				}
 			}

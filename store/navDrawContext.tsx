@@ -18,7 +18,6 @@ const NavDrawProvider: React.FC<NavDrawProps> = ({ children }) => {
 
 	const toggleNav = () => {
 		setNavDrawOpen(!navDrawOpen);
-		console.log('clicked!!!', navDrawOpen);
 	};
 
 	return (

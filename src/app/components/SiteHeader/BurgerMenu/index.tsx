@@ -2,6 +2,9 @@
 
 import { useContext } from 'react';
 import Image from 'next/image';
+
+import NavDraw from '../NavDraw';
+
 import { NavDrawContext } from '../../../../../store/navDrawContext';
 
 import styles from './styles.module.scss';
@@ -40,13 +43,38 @@ const Navbar = () => {
 			</div>
 			<div className={styles.navRight}>
 				<p>united kingdom</p>
-				<Image src='/siteIcons/heart.svg' alt='heart' width={20} height={23} />
-				<Image src='/siteIcons/bag.svg' alt='bag' width={20} height={23} />
-				<Image src='/siteIcons/person.svg' alt='user' width={20} height={23} />
-				<Image src='/siteIcons/search.svg' alt='search' width={20} height={23} />
+				<Image
+					className={styles.navIcon}
+					src='/siteIcons/heart.svg'
+					alt='heart'
+					width={20}
+					height={23}
+				/>
+				<Image
+					className={styles.navIcon}
+					src='/siteIcons/bag.svg'
+					alt='bag'
+					width={20}
+					height={23}
+				/>
+				<Image
+					className={styles.navIcon}
+					src='/siteIcons/person.svg'
+					alt='user'
+					width={20}
+					height={23}
+				/>
+				<Image
+					className={styles.navIcon}
+					src='/siteIcons/search.svg'
+					alt='search'
+					width={20}
+					height={23}
+				/>
 
 				{renderMobileBtns()}
 			</div>
+			<NavDraw />
 		</nav>
 	);
 };
