@@ -26,14 +26,15 @@ const NavItems = () => {
 
 	const renderNavItems = () => {
 		return navItems.map((item, i) => (
-			<li className={styles.listItem} key={i} onClick={() => toggle(i)}>
+			<li className={styles.listItem} key={i}>
 				<div>
-					<p>{item.title}</p>
+					<p onClick={() => toggle(i)}>{item.title}</p>
 					{item.showArrow && (
 						<Image
-							className={
-								selected === i && isArrowDown ? styles.active : styles.upArrow
-							}
+							onClick={() => toggle(i)}
+							className={`${styles.arrow} ${
+								selected === i && isArrowDown ? styles.active : ''
+							}`}
 							src='/siteIcons/upArrow.svg'
 							alt='arrow'
 							width={17}

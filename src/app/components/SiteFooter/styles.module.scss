@@ -8,18 +8,21 @@
 	.footerContainer {
 		display: flex;
 		justify-content: center;
+
 		.contentWrap {
 			display: flex;
-
+			justify-content: space-evenly;
+			width: 1000px;
 			ul {
 				li {
 					list-style: none;
 					text-transform: capitalize;
 					font-family: $mundial;
-					font-size: 13px;
+					font-size: 10px;
+					color: #7b7a77;
 
 					h4 {
-						font-size: 15px;
+						font-size: 12px;
 						font-family: mundialBold;
 						padding-bottom: 15px;
 					}

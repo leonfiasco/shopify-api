@@ -15,18 +15,18 @@
 				color: #7d7c7d;
 			}
 
-			.upArrow,
+			.arrow,
 			.active {
 				cursor: pointer;
 			}
 
-			.upArrow {
+			.arrow {
 				transition: transform 0.3s ease;
-				transform: rotate(0deg);
+				transform: rotate(180deg);
 			}
 
 			.active {
-				transform: rotate(180deg);
+				transform: rotate(0deg);
 			}
 		}
 		.subList {
@@ -34,7 +34,7 @@
 			padding-left: 30px;
 			max-height: 0;
 			overflow: hidden;
-			transition: all 0.5s cubic-bezier(0, 1, 0, 1);
+			transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
 			li {
 				list-style: none;
 				padding-bottom: 5px;
@@ -54,6 +54,6 @@
 	}
 
 	li:not(:last-child) {
-		padding-bottom: 35px;
+		padding-bottom: 25px;
 	}
 }
