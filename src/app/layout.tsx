@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google';
 import BurgerMenu from './components/SiteHeader/BurgerMenu';
 import SiteFooter from './components/SiteFooter';
 import { NavDrawProvider } from '../../store/navDrawContext';
+import AnnouncementBar from './components/SiteHeader/AnnouncementBar';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
@@ -21,6 +22,7 @@ export default function RootLayout({
 			<body className={inter.className}>
 				<NavDrawProvider>
 					<BurgerMenu />
+					<AnnouncementBar />
 					{children}
 					<SiteFooter />
 				</NavDrawProvider>

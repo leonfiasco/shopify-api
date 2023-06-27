@@ -28,30 +28,20 @@ async function ShopifyData(query) {
 
 export async function getAllProducts() {
 	const query = `
-  {
-  products(first: 35) {
+collections(first: 2) {
     edges {
       node {
         id
-        title
-        handle
-        priceRange {
-          minVariantPrice {
-            amount
-          }
-        }
-        images(first: 5) {
+        products(first: 5) {
           edges {
             node {
-              originalSrc
-              altText
+              id
             }
           }
         }
       }
     }
   }
-}
 `;
 
 	const response = await ShopifyData(query);

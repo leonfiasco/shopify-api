@@ -1,7 +1,7 @@
 'use client';
-
 import { useContext } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 import NavDraw from '../NavDraw';
 
@@ -10,7 +10,7 @@ import { NavDrawContext } from '../../../../../store/navDrawContext';
 import styles from './styles.module.scss';
 
 const Navbar = () => {
-	const { toggleNav, navDrawOpen, setNavDrawOpen } = useContext(NavDrawContext);
+	const { toggleNav, navDrawOpen } = useContext(NavDrawContext);
 
 	const renderMobileBtns = () => {
 		return (
@@ -32,12 +32,14 @@ const Navbar = () => {
 	return (
 		<nav className={styles.navbar}>
 			<div className={styles.navLeft}>
-				<Image
-					src='/siteIcons/seventh-logo.svg'
-					alt='Logo'
-					width={210}
-					height={40}
-				/>
+				<Link href={'/'}>
+					<Image
+						src='/siteIcons/seventh-logo.svg'
+						alt='Logo'
+						width={210}
+						height={40}
+					/>
+				</Link>
 				<p>subscribe</p>
 				<p>client service</p>
 			</div>
