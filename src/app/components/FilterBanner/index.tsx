@@ -8,8 +8,11 @@ type props = {
 const FilterBanner = ({ title, description }: props) => {
 	return (
 		<section className={styles.bannerContainer}>
-			<h3>{title}</h3>
-			<p>{description}</p>
+			<div className={styles.bannerInner}>
+				<h3 className={styles.title}>{title}</h3>
+				<p className={styles.description}>{description}</p>
+			</div>
+			<div className={styles.filterWrap}></div>
 		</section>
 	);
 };

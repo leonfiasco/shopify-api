@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { ProductData } from '@/app/types';
 
 import styles from './styles.module.scss';
@@ -14,7 +15,7 @@ const ProductSection = ({ data }: props) => {
 
 	const renderProducts = () => {
 		return data.map((item, index) => {
-			const { id, title, images, variants } = item.node;
+			const { id, title, images, variants, handle } = item.node;
 
 			const imageSrc =
 				hoveredIndex === index
@@ -23,23 +24,25 @@ const ProductSection = ({ data }: props) => {
 
 			return (
 				<li key={id} className={styles.listItem}>
-					<div
-						className={styles.imageWrap}
-						onMouseEnter={() => setHoveredIndex(index)}
-						onMouseLeave={() => setHoveredIndex(null)}
-					>
-						<Image
-							src={imageSrc}
-							alt='product-img'
-							fill
-							style={{ objectFit: 'cover' }}
-						/>
-					</div>
+					<Link href={`products/${handle}`}>
+						<div
+							className={styles.imageWrap}
+							onMouseEnter={() => setHoveredIndex(index)}
+							onMouseLeave={() => setHoveredIndex(null)}
+						>
+							<Image
+								src={imageSrc}
+								alt='product-img'
+								fill
+								style={{ objectFit: 'cover' }}
+							/>
+						</div>
 
-					<p className={styles.productName}>{title}</p>
-					<p className={styles.price}>
-						{variants.edges[0].node.price} <span>gbp</span>
-					</p>
+						<p className={styles.productName}>{title}</p>
+						<p className={styles.price}>
+							{variants.edges[0].node.price} <span>gbp</span>
+						</p>
+					</Link>
 				</li>
 			);
 		});

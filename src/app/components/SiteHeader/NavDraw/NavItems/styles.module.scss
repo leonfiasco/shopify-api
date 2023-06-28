@@ -4,6 +4,9 @@
 .navList {
 	.listItem {
 		list-style: none;
+		a {
+			text-decoration: none;
+		}
 		div {
 			display: flex;
 			justify-content: space-between;
@@ -35,6 +38,10 @@
 			max-height: 0;
 			overflow: hidden;
 			transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
+			a {
+				color: unset;
+			}
+
 			li {
 				list-style: none;
 				padding-bottom: 5px;

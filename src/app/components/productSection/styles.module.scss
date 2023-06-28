@@ -1,27 +1,33 @@
 @import '../../../../styles/base/variables';
 @import '../../../../styles/mixins/layout';
 
-.productList {
-	display: inline-block; /* Use inline-block to make the container shrink-wrap its content */
-	height: 100%;
-	@include gridResponsive(12, true);
-
-	.listItem {
-		grid-column: span 3;
-		list-style: none;
-		padding-bottom: 100px;
-		.imageWrap {
-			position: relative;
-			width: 100%;
-			height: 440px;
-			margin-bottom: 15px;
+.productSection {
+	@include containerResponsiveNew($containerFull: true);
+	.productList {
+		display: inline-block; /* Use inline-block to make the container shrink-wrap its content */
+		height: 100%;
+		@include gridResponsive(12, true);
+		a {
+			text-decoration: none;
 		}
-		.productName,
-		.price {
-			color: #212322cc;
-			font-size: 10px;
-			span {
-				text-transform: uppercase;
+		.listItem {
+			grid-column: span 3;
+			list-style: none;
+			padding-bottom: 100px;
+			cursor: pointer;
+			.imageWrap {
+				position: relative;
+				width: 100%;
+				height: 440px;
+				margin-bottom: 15px;
+			}
+			.productName,
+			.price {
+				color: #212322cc;
+				font-size: 10px;
+				span {
+					text-transform: uppercase;
+				}
 			}
 		}
 	}

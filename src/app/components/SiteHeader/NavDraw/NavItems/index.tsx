@@ -27,7 +27,6 @@ const NavItems = () => {
 		{ title: 'summer collection', link: '/collections/summer-collection' },
 		{ title: 'men', showArrow: true },
 		{ title: 'women', showArrow: true },
-		{ title: 'collaborations', showArrow: true },
 	];
 
 	const renderNavItems = () => {
@@ -59,12 +58,20 @@ const NavItems = () => {
 									selected === i ? styles.openSublist : ''
 								}`}
 							>
-								<li>spring summer</li>
+								<li>
+									<Link
+										href={'/collections/summer-collection'}
+										onClick={() => setNavDrawOpen(false)}
+									>
+										spring summer
+									</Link>
+								</li>
 
-								<li>shop all</li>
-								<li>tops</li>
-								<li>bottoms</li>
-								<li>jackets/coats</li>
+								<li>
+									<Link href={'/collections/mens'} onClick={() => setNavDrawOpen(false)}>
+										shop all
+									</Link>
+								</li>
 							</ul>
 						)}
 					</Link>
@@ -92,11 +99,25 @@ const NavItems = () => {
 								selected === i ? styles.openSublist : ''
 							}`}
 						>
-							<li>spring summer</li>
-							<li>shop all</li>
-							<li>tops</li>
-							<li>bottoms</li>
-							<li>jackets/coats</li>
+							<li>
+								{' '}
+								<Link
+									href={'/collections/summer-collection'}
+									onClick={() => setNavDrawOpen(false)}
+								>
+									spring summer
+								</Link>
+							</li>
+							<li>
+								<Link
+									href={
+										item?.title === 'men' ? '/collections/mens' : '/collections/womens'
+									}
+									onClick={() => setNavDrawOpen(false)}
+								>
+									shop all
+								</Link>
+							</li>
 						</ul>
 					)}
 				</li>

@@ -6,7 +6,7 @@ import FilterBanner from '@/app/components/FilterBanner';
 
 export default async function Summer() {
 	const data = await getSummerCollection();
-	// console.log(data[1].node.products.edges[0].node.variants.edges[0].node);
+
 	return (
 		<section className={styles.summerCollectionWrap}>
 			<FilterBanner

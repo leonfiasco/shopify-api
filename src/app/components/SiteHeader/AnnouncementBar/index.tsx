@@ -1,13 +1,14 @@
+import Link from 'next/link';
 import styles from './style.module.scss';
 
 const AnnouncementBar = () => {
 	return (
 		<div className={styles.announcementBar}>
-			<div className={styles.announcementBarInner}>
-				<a href=''>
+			<Link href={'/collections/summer-collection'}>
+				<div className={styles.announcementBarInner}>
 					<p>Summer Collection Live</p>
-				</a>
-			</div>
+				</div>
+			</Link>
 		</div>
 	);
 };

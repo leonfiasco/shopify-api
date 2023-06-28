@@ -1,4 +1,6 @@
-.title {
+@import '../../../../styles/base/variables';
+@import '../../../../styles/mixins/layout';
+
+.summerCollectionWrap {
 	background-color: #f3eee8;
-	height: 100vh;
 }

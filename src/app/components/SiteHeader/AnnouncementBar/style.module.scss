@@ -4,17 +4,18 @@
 	background-color: #fffaf3;
 
 	margin-top: 100px;
+	a {
+		text-decoration: none;
+	}
 	.announcementBarInner {
 		text-align: center;
 		padding: 10px 5px;
-		a {
-			text-decoration: none;
-			p {
-				color: #7b7a77;
-				font-size: 11px;
-				font-family: $mundial;
-				text-transform: capitalize;
-			}
+
+		p {
+			color: #7b7a77;
+			font-size: 11px;
+			font-family: $mundial;
+			text-transform: capitalize;
 		}
 	}
 }

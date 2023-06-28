@@ -17,3 +17,23 @@
 	font-style: normal;
 	font-display: swap;
 }
+
+@font-face {
+	font-family: mundialLight;
+	src: url('../../src/app/static/fonts/MundialLight.otf') format('opentype');
+	font-weight: normal;
+	font-style: normal;
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: mundialHair;
+	src: url('../../src/app/static/fonts/MundialHair.otf') format('opentype');
+	font-weight: normal;
+	font-style: normal;
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}

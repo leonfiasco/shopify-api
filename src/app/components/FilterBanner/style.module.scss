@@ -1,0 +1,35 @@
+@import '../../../../styles/base/variables';
+
+.bannerContainer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	height: 200px;
+	.bannerInner {
+		width: 685px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		flex-direction: column;
+		padding: 15px 0;
+		.title {
+			color: rgba(33, 35, 34, 0.8);
+			font-family: $mundialLight;
+			padding-bottom: 30px;
+			font-size: 18px;
+		}
+
+		.description {
+			text-align: center;
+			color: rgba(33, 35, 34, 0.8);
+			font-family: $mundialHair;
+			line-height: 15px;
+			font-size: 11px;
+		}
+	}
+
+	.filterWrap {
+		border: 2px solid blue;
+	}
+}

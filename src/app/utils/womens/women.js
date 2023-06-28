@@ -21,15 +21,15 @@ async function ShopifyData(query) {
 	}
 }
 
-export async function getSummerCollection() {
+export async function getShopAll() {
 	const query = `
    {
-  collections(first: 2) {
+  collections(first: 3) {
     edges {
       node {
         id
         title
-        products(first: 8) {
+        products(first: 15) {
           edges {
             node {
               id
@@ -62,9 +62,9 @@ export async function getSummerCollection() {
 
 	try {
 		const response = await ShopifyData(query);
-		const summerCollection = response.collections.edges;
+		const shopAll = response.collections.edges;
 
-		return summerCollection;
+		return shopAll;
 	} catch (error) {
 		throw new Error('Failed to fetch collections');
 	}

@@ -35,6 +35,7 @@ export interface ProductData {
 	node: {
 		id: string;
 		title: string;
+		handle: string;
 		images: Image;
 		variants: Variants;
 	};
