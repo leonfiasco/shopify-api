@@ -7,7 +7,8 @@ import { NavDrawContext } from '../../../../../../store/navDrawContext';
 import styles from './styles.module.scss';
 
 const NavItems = () => {
-	const [selected, setSelected] = useState(null);
+	const [selected, setSelected] = useState<number | null>(null);
+
 	const [isArrowDown, setIsArrowDown] = useState(false);
 
 	const { setNavDrawOpen } = useContext(NavDrawContext);
