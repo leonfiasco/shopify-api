@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ProductData } from '@/app/types';
@@ -11,6 +11,18 @@ type props = {
 };
 
 const ProductSection = ({ data }: props) => {
+	// useEffect(() => {
+	// 	// Preload images when the component mounts
+	// 	data.forEach((item) => {
+	// 		// const { images } = item.node;
+	// 		// const imageSrcs = images.edges.map((edge) => edge.node.originalSrc);
+	// 		// imageSrcs.forEach((src) => {
+	// 		// 	const img = new Image();
+	// 		// 	img.src = src;
+	// 		});
+	// 	});
+	// }, [data]);
+
 	const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
 	const renderProducts = () => {
@@ -23,18 +35,20 @@ const ProductSection = ({ data }: props) => {
 					: images.edges[0].node.originalSrc;
 
 			return (
-				<li key={id} className={styles.listItem}>
+				<li
+					key={id}
+					className={styles.listItem}
+					onMouseEnter={() => setHoveredIndex(index)}
+					onMouseLeave={() => setHoveredIndex(null)}
+				>
 					<Link href={`products/${handle}`}>
-						<div
-							className={styles.imageWrap}
-							onMouseEnter={() => setHoveredIndex(index)}
-							onMouseLeave={() => setHoveredIndex(null)}
-						>
+						<div className={styles.imageWrap}>
 							<Image
 								src={imageSrc}
 								alt='product-img'
 								fill
 								style={{ objectFit: 'cover' }}
+								priority
 							/>
 						</div>
 

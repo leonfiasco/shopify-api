@@ -10,7 +10,7 @@ import { NavDrawContext } from '../../../../../store/navDrawContext';
 import styles from './styles.module.scss';
 
 const Navbar = () => {
-	const { toggleNav, navDrawOpen } = useContext(NavDrawContext);
+	const { toggleNav, navDrawOpen, setNavDrawOpen } = useContext(NavDrawContext);
 
 	const renderMobileBtns = () => {
 		return (
@@ -32,7 +32,7 @@ const Navbar = () => {
 	return (
 		<nav className={styles.navbar}>
 			<div className={styles.navLeft}>
-				<Link href={'/'}>
+				<Link href={'/'} onClick={() => setNavDrawOpen(false)}>
 					<Image
 						src='/siteIcons/seventh-logo.svg'
 						alt='Logo'

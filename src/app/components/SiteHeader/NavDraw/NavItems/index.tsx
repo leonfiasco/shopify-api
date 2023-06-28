@@ -61,7 +61,9 @@ const NavItems = () => {
 								<li>
 									<Link
 										href={'/collections/summer-collection'}
-										onClick={() => setNavDrawOpen(false)}
+										onClick={() => {
+											setNavDrawOpen(false);
+										}}
 									>
 										spring summer
 									</Link>

@@ -6,7 +6,6 @@ import FilterBanner from '@/app/components/FilterBanner';
 
 export default async function Mens() {
 	const data = await getShopAll();
-	console.log(data[0].node.products.edges);
 
 	return (
 		<section className={styles.mensCollection}>
