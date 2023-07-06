@@ -5,8 +5,9 @@ const BannerImage = () => {
 	return (
 		<section className={styles.bannerContainer}>
 			<Image
+				priority
 				src='/images/banner.svg'
-				alt='Banner image'
+				alt='Banner-image'
 				style={{ objectFit: 'cover' }}
 				layout='responsive'
 				width={1920}

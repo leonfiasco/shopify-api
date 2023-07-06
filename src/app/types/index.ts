@@ -12,6 +12,7 @@ export interface Image {
 		edges: {
 			node: {
 				originalSrc: string;
+				altText?: string;
 			};
 		};
 	};
@@ -30,13 +31,22 @@ export interface Variants {
 	};
 }
 
+export interface Product {
+	id: string;
+	title: string;
+	handle: string;
+	images: Image;
+	variants: Variants;
+}
+
 export interface ProductData {
-	map(arg0: (item: any) => import('react').JSX.Element): unknown;
+	node: Product;
+}
+
+export interface CollectionData {
 	node: {
 		id: string;
 		title: string;
-		handle: string;
-		images: Image;
-		variants: Variants;
+		products: ProductData;
 	};
 }

@@ -1,0 +1,84 @@
+@import '../../../../../../styles/base/variables';
+
+.productSingle {
+	display: flex;
+
+	.productImage,
+	.productInfo {
+		overflow-x: scroll;
+		overflow-y: scroll;
+		overflow: scroll;
+		// height: 100vh;
+	}
+	.productImage {
+		position: relative;
+		flex: 6;
+		background-color: #f3eee8;
+
+		.imageWrap {
+			display: flex;
+			justify-content: center;
+		}
+	}
+	.productInfo {
+		flex-basis: 600px;
+		background-color: #fffaf4;
+		padding: 120px 20px 100px 40px;
+		.breadCrumbs {
+			padding-bottom: 15px;
+			ol {
+				display: flex;
+				list-style: none;
+				li:first-child {
+					a {
+						text-decoration: underline;
+					}
+				}
+				li {
+					text-transform: capitalize;
+					a {
+						text-decoration: none;
+						color: black;
+						font-family: $mundialHair;
+						font-size: 12px;
+					}
+				}
+				li:not(:last-child)::after {
+					// padding-right: 3px;
+					margin: 0 0.2em;
+					font-family: $mundialHair;
+					content: '    /';
+				}
+			}
+		}
+
+		.productTitle {
+			color: #212322cc;
+			font-size: 24px;
+			font-family: $mundial;
+			line-height: 1.20833;
+			padding-bottom: 20px;
+		}
+
+		.dropDownWrap {
+			select.sizeDropDown,
+			select.quantityDropDown {
+				background-color: inherit;
+				border: 1px solid #f3eee8;
+				color: #212322cc;
+				font-size: 11px;
+			}
+			.sizeDropDown {
+				position: relative;
+				width: 262px;
+				height: 40px;
+				padding: 5px 10px;
+				margin-right: 20px;
+			}
+			.quantityDropDown {
+				height: 40px;
+				width: 85px;
+			}
+		}
+	}
+}

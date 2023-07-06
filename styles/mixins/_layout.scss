@@ -5,31 +5,31 @@
 	display: grid;
 	grid-template-columns: repeat(#{$coloumns}, 1fr);
 	@media (min-width: $breakMobile) {
-		grid-column-gap: $gutterMobile;
+		grid-column-gap: none;
 		@if $withRowGap {
 			grid-row-gap: $rowGutterMobile;
 		}
 	}
 	@media (min-width: $breakLargeMobile) {
-		grid-column-gap: $gutterLargeMobile;
+		grid-column-gap: none;
 		@if $withRowGap {
 			grid-row-gap: $rowGutterLargeMobile;
 		}
 	}
 	@media (min-width: $breakTablet) {
-		grid-column-gap: $gutterTablet;
+		grid-column-gap: none;
 		@if $withRowGap {
 			grid-row-gap: $rowGutterTablet;
 		}
 	}
 	@media (min-width: $breakDesktop) {
-		grid-column-gap: $gutterDesktop;
+		grid-column-gap: none;
 		@if $withRowGap {
 			grid-row-gap: $rowGutterDesktop;
 		}
 	}
 	@media (min-width: $breakHd) {
-		grid-column-gap: $gutterHd;
+		grid-column-gap: none;
 		@if $withRowGap {
 			grid-row-gap: $rowGutterHd;
 		}

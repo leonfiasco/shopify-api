@@ -2,9 +2,7 @@
 import { useContext } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-
 import NavDraw from '../NavDraw';
-
 import { NavDrawContext } from '../../../../../store/navDrawContext';
 
 import styles from './styles.module.scss';

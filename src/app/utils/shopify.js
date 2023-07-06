@@ -1,29 +1,52 @@
-const domain = process.env.SHOPIFY_API_ENDPOINT;
-const storefrontAccessToken = process.env.SHOPIFY_STOREFRONT_API_TOKEN;
+import axios from 'axios';
 
 async function ShopifyData(query) {
-	const URL = `https://${domain}/api/2023-04/graphql.json`;
-
-	const options = {
-		endpoint: URL,
-		method: 'POST',
-		headers: {
-			'X-Shopify-Storefront-Access-Token': storefrontAccessToken,
-			Accept: 'application/json',
-			'Content-Type': 'application/json',
-		},
-		body: JSON.stringify({ query }),
-	};
-
 	try {
-		const data = await fetch(URL, options).then((response) => {
-			return response.json();
+		const response = await axios({
+			url: `https://${process.env.SHOPIFY_API_ENDPOINT}/api/graphql`,
+			method: 'post',
+			headers: {
+				'Content-Type': 'application/json',
+				'X-Shopify-Storefront-Access-Token':
+					process.env.SHOPIFY_STOREFRONT_API_TOKEN,
+			},
+			data: JSON.stringify({ query }),
 		});
 
-		return data;
+		return response.data.data;
 	} catch (error) {
 		throw new Error('Products not fetched');
 	}
+}
+
+export async function getProductByHandle(handle) {
+	const query = ` {
+      productByHandle(handle: "${handle}") {
+        id
+        title
+        description
+        totalInventory
+        priceRange {
+          minVariantPrice {
+            amount
+          }
+        }
+        images(first: 5) {
+          edges {
+            node {
+              originalSrc
+              altText
+            }
+          }
+        }
+      }
+    }
+  `;
+
+	const response = await ShopifyData(query);
+	const product = response ? response.productByHandle : [];
+
+	return product;
 }
 
 export async function getAllProducts() {
@@ -56,8 +79,18 @@ export async function getAllProducts() {
 
 	const response = await ShopifyData(query);
 
-	const allProducts = response.data.products.edges
-		? response.data.products.edges
+	const allProducts = response
+		? response.products.edges.map((product) => {
+				const { id, title, handle, priceRange, images } = product.node;
+				return {
+					id: id,
+					title: title,
+					handle: handle,
+					price: priceRange.minVariantPrice.amount,
+					imageSrc: images.edges[0].node.originalSrc,
+					imageAlt: product.node.title,
+				};
+		  })
 		: [];
 
 	return allProducts;
