@@ -1,9 +1,15 @@
 import Link from 'next/link';
 import ImageTag from 'next/image';
 import { Product, Image } from '../../../../types/index';
-import { getAllProducts, getProductByHandle } from '../../../../utils/shopify';
+import {
+	getAllProducts,
+	getProductByHandle,
+	getShopAll,
+} from '../../../../utils/shopify';
 
 import styles from './style.module.scss';
+import DropDown from '@/app/components/Dropdown';
+import PaymentBtn from '@/app/components/PaymentBtn';
 
 type props = {
 	params: {
@@ -28,15 +34,21 @@ export async function getStaticPaths() {
 
 export default async function MensSingle({ params }: props) {
 	const product = await getProductByHandle(params.handle);
+	const data = await getShopAll();
+
+	// const renderBreadCrumb = () => {
+	// 	return data && data.map((node) => {});
+	// };
 
 	const renderImages = () => {
 		return (
 			product &&
-			product.images.edges.map((img: Image) => {
+			product.images.edges.map((img: Image, i: number) => {
 				const { originalSrc, altText } = img.node;
+				// console.log('------>', product);
 
 				return (
-					<div className={styles.imageWrap} key={product.id}>
+					<div className={styles.imageWrap} key={i}>
 						<ImageTag
 							src={originalSrc}
 							alt={product.title}
@@ -69,19 +81,14 @@ export default async function MensSingle({ params }: props) {
 					</ol>
 				</div>
 				<h2 className={styles.productTitle}>{product.title}</h2>
-				<div className={styles.dropDownWrap}>
-					<select className={styles.sizeDropDown} placeholder={'select a size'}>
-						<option value='S'>S</option>
-						<option value='M'>M</option>
-						<option value='L'>L</option>
-						<option value='XL'>XL</option>
-					</select>
-					<select className={styles.quantityDropDown}>
-						<option value='1'>1</option>
-						<option value='2'>2</option>
-						<option value='3'>3</option>
-						<option value='4'>4</option>
-					</select>
+				<DropDown />
+				<PaymentBtn price={product.priceRange.minVariantPrice.amount} />
+
+				<hr className={styles.horizontalLine} />
+
+				<div className={styles.productDescription}>
+					<p>details</p>
+					<article dangerouslySetInnerHTML={{ __html: product.descriptionHtml }} />
 				</div>
 			</div>
 		</section>

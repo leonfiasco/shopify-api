@@ -1,0 +1,44 @@
+@import '../../../../styles/base/variables';
+
+.paymentBtn {
+	background-color: #212322;
+	border: none;
+	border-radius: 3px;
+	color: #c9c5c0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 40px;
+	width: 295px;
+	cursor: pointer;
+	overflow: hidden;
+	span {
+		font-family: $mundialHair;
+		font-size: 12px;
+		display: flex;
+		align-items: center;
+	}
+
+	.iconTextWrap {
+		transition: transform 0.3s;
+		transform: translateX(0%);
+	}
+
+	.price {
+		padding-left: 15px;
+		font-size: 12px;
+		font-family: $mundialHair;
+		transition: transform 0.3s;
+		transform: translateX(0%);
+	}
+
+	&.slideOut {
+		.iconTextWrap {
+			transform: translateX(60%);
+		}
+
+		.price {
+			transform: translateX(250%);
+		}
+	}
+}

@@ -24,7 +24,7 @@ export async function getProductByHandle(handle) {
       productByHandle(handle: "${handle}") {
         id
         title
-        description
+        descriptionHtml 
         totalInventory
         priceRange {
           minVariantPrice {
@@ -47,6 +47,55 @@ export async function getProductByHandle(handle) {
 	const product = response ? response.productByHandle : [];
 
 	return product;
+}
+
+export async function getShopAll() {
+	const query = `
+   {
+  collections(first: 3) {
+    edges {
+      node {
+        id
+        title
+        products(first: 15) {
+          edges {
+            node {
+              id
+              title
+              handle
+              images(first: 2) {
+                edges {
+                  node {
+                    originalSrc
+                    altText
+                  }
+                }
+              }
+              variants(first: 1) {
+                edges {
+                  node {
+                    price
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+  `;
+
+	try {
+		const response = await ShopifyData(query);
+		const shopAll = response.collections.edges;
+
+		return shopAll;
+	} catch (error) {
+		throw new Error('Failed to fetch collections');
+	}
 }
 
 export async function getAllProducts() {

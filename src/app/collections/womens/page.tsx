@@ -1,5 +1,5 @@
 import ProductSection from '@/app/components/productSection';
-import { getShopAll } from '../../utils/mens/shopAll';
+import { getShopAll } from '../../utils/shopify';
 
 import styles from './style.module.scss';
 import FilterBanner from '@/app/components/FilterBanner';
