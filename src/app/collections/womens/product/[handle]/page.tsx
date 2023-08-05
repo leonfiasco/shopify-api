@@ -1,12 +1,12 @@
 import Link from 'next/link';
 import ImageTag from 'next/image';
-import { getStaticPaths } from './MensSingle';
+import { getStaticPaths } from './WomensSingle';
 import { SingleImage } from '../../../../types/index';
 import { getProductByHandle } from '../../../../utils/shopify';
 
-import styles from './style.module.scss';
 import DropDown from '@/app/components/Dropdown';
 import PaymentBtn from '@/app/components/PaymentBtn';
+import styles from './styles.module.scss';
 
 type props = {
 	params: {
@@ -14,7 +14,7 @@ type props = {
 	};
 };
 
-export default async function MensSinglePage({ params }: props) {
+export default async function WomansSinglePage({ params }: props) {
 	const product = await getProductByHandle(params.handle);
 
 	const renderImages = () => {
