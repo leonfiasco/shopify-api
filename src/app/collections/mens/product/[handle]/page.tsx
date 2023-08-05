@@ -1,6 +1,7 @@
-import { GetStaticPaths } from 'next';
 import Link from 'next/link';
 import ImageTag from 'next/image';
+
+import { GetStaticPaths } from 'next';
 import { Product, Image } from '../../../../types/index';
 import {
 	getAllProducts,
@@ -18,8 +19,6 @@ type props = {
 	};
 };
 
-export const dynamicParams = false;
-
 export const getStaticPaths: GetStaticPaths = async () => {
 	const products = await getAllProducts();
 
@@ -35,10 +34,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export default async function MensSingle({ params }: props) {
 	const product = await getProductByHandle(params.handle);
-	// const data = await getShopAll();
-
 	const renderImages = () => {
-		console.log('===>', product.images.edges);
 		return (
 			product &&
 			product.images.edges.map((img: Image, i: number) => {
