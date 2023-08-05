@@ -32,7 +32,11 @@ export const getStaticPaths: GetStaticPaths = async () => {
 	};
 };
 
-export default async function MensSingle({ params }: props) {
+export default async function MensSingle({
+	params,
+}: {
+	params: { handle: string };
+}) {
 	const product = await getProductByHandle(params.handle);
 	const renderImages = () => {
 		return (
