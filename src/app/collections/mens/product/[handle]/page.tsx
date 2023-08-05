@@ -36,16 +36,12 @@ export default async function MensSingle({ params }: props) {
 	const product = await getProductByHandle(params.handle);
 	const data = await getShopAll();
 
-	// const renderBreadCrumb = () => {
-	// 	return data && data.map((node) => {});
-	// };
-
 	const renderImages = () => {
+		console.log('===>', product.images.edges);
 		return (
 			product &&
 			product.images.edges.map((img: Image, i: number) => {
 				const { originalSrc, altText } = img.node;
-				// console.log('------>', product);
 
 				return (
 					<div className={styles.imageWrap} key={i}>

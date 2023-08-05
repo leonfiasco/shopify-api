@@ -7,14 +7,9 @@ export interface NavDrawValue {
 }
 
 export interface Image {
-	edges: any;
-	images: {
-		edges: {
-			node: {
-				originalSrc: string;
-				altText?: string;
-			};
-		};
+	node: {
+		originalSrc: string;
+		altText?: string;
 	};
 }
 
