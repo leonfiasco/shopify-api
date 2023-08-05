@@ -1,4 +1,3 @@
-// import { useNavigation } from 'next/navigation';
 import ProductSection from '@/app/components/productSection';
 import { getShopAll } from '../../utils/shopify';
 

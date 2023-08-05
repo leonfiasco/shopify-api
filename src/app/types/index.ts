@@ -7,6 +7,15 @@ export interface NavDrawValue {
 }
 
 export interface Image {
+	edges: {
+		node: {
+			originalSrc: string;
+			altText?: string;
+		};
+	}[];
+}
+
+export interface SingleImage {
 	node: {
 		originalSrc: string;
 		altText?: string;

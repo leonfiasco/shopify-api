@@ -1,43 +1,26 @@
 import Link from 'next/link';
 import ImageTag from 'next/image';
 
-import { GetStaticPaths } from 'next';
-import { Product, Image } from '../../../../types/index';
-import {
-	getAllProducts,
-	getProductByHandle,
-	getShopAll,
-} from '../../../../utils/shopify';
+import { SingleImage } from '../../../../types/index';
+import { getProductByHandle } from '../../../../utils/shopify';
 
 import styles from './style.module.scss';
 import DropDown from '@/app/components/Dropdown';
 import PaymentBtn from '@/app/components/PaymentBtn';
 
-type Props = {
+type props = {
 	params: {
 		handle: string;
 	};
 };
 
-export const getStaticPaths: GetStaticPaths = async () => {
-	const products = await getAllProducts();
-
-	const paths = products.map((product: Product) => ({
-		params: { handle: product.handle },
-	}));
-
-	return {
-		paths,
-		fallback: false,
-	};
-};
-
-export default async function MensSingle({ params }: Props) {
+export default async function MensSinglePage({ params }: props) {
 	const product = await getProductByHandle(params.handle);
+
 	const renderImages = () => {
 		return (
 			product &&
-			product.images.edges.map((img: Image, i: number) => {
+			product.images.edges.map((img: SingleImage, i: number) => {
 				const { originalSrc, altText } = img.node;
 
 				return (
