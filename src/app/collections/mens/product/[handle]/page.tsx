@@ -13,7 +13,7 @@ import styles from './style.module.scss';
 import DropDown from '@/app/components/Dropdown';
 import PaymentBtn from '@/app/components/PaymentBtn';
 
-type props = {
+type Props = {
 	params: {
 		handle: string;
 	};
@@ -32,11 +32,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 	};
 };
 
-export default async function MensSingle({
-	params,
-}: {
-	params: { handle: string };
-}) {
+export default async function MensSingle({ params }: Props) {
 	const product = await getProductByHandle(params.handle);
 	const renderImages = () => {
 		return (
