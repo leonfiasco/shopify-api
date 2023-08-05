@@ -1,5 +1,5 @@
 import ProductSection from '@/app/components/productSection';
-import { getSummerCollection } from '../../utils/summerCollection';
+// import { getSummerCollection } from '../../utils/summerCollection';
 
 import styles from './style.module.scss';
 import FilterBanner from '@/app/components/FilterBanner';

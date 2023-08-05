@@ -56,7 +56,7 @@ export default async function WomansSinglePage({ params }: props) {
 						</li>
 					</ol>
 				</div>
-				<h2 className={styles.productTitle}>{product.title}</h2>
+				{product.title && <h2 className={styles.productTitle}>{product.title}</h2>}
 				<DropDown />
 				<PaymentBtn price={product.priceRange.minVariantPrice.amount} />
 
@@ -64,7 +64,9 @@ export default async function WomansSinglePage({ params }: props) {
 
 				<div className={styles.productDescription}>
 					<p>details</p>
-					<article dangerouslySetInnerHTML={{ __html: product.descriptionHtml }} />
+					{product.descriptionHtml && (
+						<article dangerouslySetInnerHTML={{ __html: product.descriptionHtml }} />
+					)}
 				</div>
 			</div>
 		</section>
