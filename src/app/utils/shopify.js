@@ -24,7 +24,7 @@ export async function getProductByHandle(handle) {
       productByHandle(handle: "${handle}") {
         id
         title
-        descriptionHtml 
+        descriptionHtml
         totalInventory
         priceRange {
           minVariantPrice {
@@ -71,13 +71,6 @@ export async function getShopAll() {
                   }
                 }
               }
-              variants(first: 1) {
-                edges {
-                  node {
-                    price
-                  }
-                }
-              }
             }
           }
         }
@@ -100,37 +93,45 @@ export async function getShopAll() {
 
 export async function getAllProducts() {
 	const query = `
-  {
-  products(first: 35) {
-    edges {
-      node {
-        id
-        title
-        handle
-        priceRange {
-          minVariantPrice {
-            amount
-          }
-        }
-        images(first: 5) {
-          edges {
-            node {
-              originalSrc
-              altText
+    {
+      products(first: 35) {
+        edges {
+          node {
+            id
+            title
+            handle
+            priceRange {
+              minVariantPrice {
+                amount
+              }
+            }
+            images(first: 5) {
+              edges {
+                node {
+                  originalSrc
+                  altText
+                }
+              }
+            }
+            variants(first: 1) {
+              edges {
+                node {
+                  price
+                }
+              }
             }
           }
         }
       }
     }
-  }
-}
-`;
+  `;
 
 	const response = await ShopifyData(query);
 
 	const allProducts = response
-		? response.products.edges.map((product) => {
+		? response.data.products.edges.map((product) => {
 				const { id, title, handle, priceRange, images } = product.node;
+
 				return {
 					id: id,
 					title: title,
