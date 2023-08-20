@@ -22,6 +22,8 @@
 		background-color: #fffaf4;
 		padding: 120px 20px 100px 40px;
 		position: sticky;
+		max-height: calc(100vh - 5px); /* Adjust the value as needed */
+		overflow-y: auto;
 		.breadCrumbs {
 			padding-bottom: 15px;
 			ol {

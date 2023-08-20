@@ -18,25 +18,24 @@ export default async function WomansSinglePage({ params }: props) {
 	const product = await getProductByHandle(params.handle);
 
 	const renderImages = () => {
-		return (
-			product &&
-			product.images.edges.map((img: SingleImage, i: number) => {
-				const { originalSrc } = img.node;
+		return product.images.edges.length
+			? product.images.edges.map((img: SingleImage, i: number) => {
+					const { originalSrc } = img.node;
 
-				return (
-					<div className={styles.imageWrap} key={i}>
-						<ImageTag
-							src={originalSrc}
-							alt={product.title}
-							height={750}
-							width={485}
-							style={{ objectFit: 'cover' }}
-							priority
-						/>
-					</div>
-				);
-			})
-		);
+					return (
+						<div className={styles.imageWrap} key={i}>
+							<ImageTag
+								src={originalSrc}
+								alt={product.title}
+								height={750}
+								width={485}
+								style={{ objectFit: 'cover' }}
+								priority
+							/>
+						</div>
+					);
+			  })
+			: null;
 	};
 
 	return (

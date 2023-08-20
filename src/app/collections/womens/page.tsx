@@ -9,15 +9,19 @@ export default async function Womens() {
 
 	return (
 		<section className={styles.womensCollection}>
-			<FilterBanner
-				title={data[2].node.title}
-				description={`Don't compromise comfort for style: you can have both. Explore our range of unisex apparel, from our joggers in our signature V2 fabric to our utility wear combats.`}
-			/>
+			{data.length ? (
+				<FilterBanner
+					title={data[2].node.title}
+					description={`Don't compromise comfort for style: you can have both. Explore our range of unisex apparel, from our joggers in our signature V2 fabric to our utility wear combats.`}
+				/>
+			) : null}
 
-			<ProductSection
-				data={data[2].node.products.edges}
-				collectionTitle={data[2].node.title}
-			/>
+			{data.length ? (
+				<ProductSection
+					data={data[2].node.products.edges}
+					collectionTitle={data[2].node.title}
+				/>
+			) : null}
 		</section>
 	);
 }

@@ -9,14 +9,18 @@ export default async function Mens() {
 
 	return (
 		<section className={styles.mensCollection}>
-			<FilterBanner
-				title={data[0].node.title}
-				description='Feel at home in our selection of unisex pieces. From our classic Trucker style trousers to our innovative V2 hoodie, our pieces are made to be seen and rested in.'
-			/>
-			<ProductSection
-				data={data[0].node.products.edges}
-				collectionTitle={data[0].node.title}
-			/>
+			{data.length ? (
+				<FilterBanner
+					title={data[0].node.title}
+					description='Feel at home in our selection of unisex pieces. From our classic Trucker style trousers to our innovative V2 hoodie, our pieces are made to be seen and rested in.'
+				/>
+			) : null}
+			{data.length ? (
+				<ProductSection
+					data={data[0].node.products.edges}
+					collectionTitle={data[0].node.title}
+				/>
+			) : null}
 		</section>
 	);
 }

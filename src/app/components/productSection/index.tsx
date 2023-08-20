@@ -14,45 +14,48 @@ type props = {
 const ProductSection = ({ data, collectionTitle }: props) => {
 	const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 	const renderProducts = () => {
-		return data.map((item, index) => {
-			const { id, title, images, handle } = item.node;
+		return (
+			!!data &&
+			data.map((item, index) => {
+				const { id, title, images, handle } = item.node;
 
-			const imageSrc =
-				hoveredIndex === index
-					? images.edges[1].node.originalSrc
-					: images.edges[0].node.originalSrc;
+				const imageSrc =
+					hoveredIndex === index
+						? images.edges[1].node.originalSrc
+						: images.edges[0].node.originalSrc;
 
-			return (
-				<li
-					key={id}
-					className={styles.listItem}
-					onMouseEnter={() => setHoveredIndex(index)}
-					onMouseLeave={() => setHoveredIndex(null)}
-				>
-					<Link
-						href={`${
-							collectionTitle && collectionTitle.toLocaleLowerCase()
-						}/product/${handle}`}
+				return (
+					<li
+						key={id}
+						className={styles.listItem}
+						onMouseEnter={() => setHoveredIndex(index)}
+						onMouseLeave={() => setHoveredIndex(null)}
 					>
-						<div className={styles.imageWrap}>
-							<Image
-								src={imageSrc}
-								alt={handle}
-								fill
-								style={{ objectFit: 'cover' }}
-								priority
-							/>
-						</div>
-						<div className={styles.productInfo}>
-							<p className={styles.productName}>{title}</p>
-							{/* <p className={styles.price}>
+						<Link
+							href={`${
+								collectionTitle && collectionTitle.toLocaleLowerCase()
+							}/product/${handle}`}
+						>
+							<div className={styles.imageWrap}>
+								<Image
+									src={imageSrc}
+									alt={handle}
+									fill
+									style={{ objectFit: 'cover' }}
+									priority
+								/>
+							</div>
+							<div className={styles.productInfo}>
+								<p className={styles.productName}>{title}</p>
+								{/* <p className={styles.price}>
 								{variants.edges[0].node.price} <span>gbp</span>
 							</p> */}
-						</div>
-					</Link>
-				</li>
-			);
-		});
+							</div>
+						</Link>
+					</li>
+				);
+			})
+		);
 	};
 
 	return (
