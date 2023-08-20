@@ -62,10 +62,9 @@ export async function getSummerCollection() {
 
 	try {
 		const response = await ShopifyData(query);
-		// const summerCollection = response.collections.edges;
+		const summerCollection = response.collections.edges;
 
-		// return summerCollection;
-		// console.log('summer-collection', response);
+		return summerCollection;
 	} catch (error) {
 		throw new Error('Failed to fetch collections');
 	}
