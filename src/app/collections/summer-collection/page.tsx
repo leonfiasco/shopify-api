@@ -6,17 +6,18 @@ import FilterBanner from '@/app/components/FilterBanner';
 
 export default async function Summer() {
 	const data = await getSummerCollection();
+	console.log('BIG TIME CLIENT DATA 🌺', data);
 
 	return (
 		<section className={styles.summerCollectionWrap}>
-			{/* <FilterBanner
+			<FilterBanner
 				title={data[1].node.title}
 				description='The warmer seasons of the year have sometimes felt like a mildly blank canvas. Our Spring Summer drop has been shaped just the way we like it, with attention to texture, color, trim and silhouette leading our design process. Follow the link to view our Spring Summer Look Book here.'
 			/>
 			<ProductSection
 				data={data[1].node.products.edges}
 				collectionTitle={data[1].node.title}
-			/> */}
+			/>
 		</section>
 	);
 }

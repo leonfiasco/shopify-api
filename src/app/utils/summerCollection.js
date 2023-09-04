@@ -1,20 +1,17 @@
 import axios from 'axios';
 
-const domain = process.env.SHOPIFY_API_ENDPOINT;
-const storefrontAccessToken = process.env.SHOPIFY_STOREFRONT_API_TOKEN;
-
 async function ShopifyData(query) {
 	try {
 		const response = await axios({
-			url: `https://${domain}/api/graphql`,
+			url: `https://${process.env.SHOPIFY_API_ENDPOINT}/api/graphql`,
 			method: 'post',
 			headers: {
 				'Content-Type': 'application/json',
-				'X-Shopify-Storefront-Access-Token': storefrontAccessToken,
+				'X-Shopify-Storefront-Access-Token':
+					process.env.SHOPIFY_STOREFRONT_API_TOKEN,
 			},
 			data: JSON.stringify({ query }),
 		});
-
 		return response.data.data;
 	} catch (error) {
 		throw new Error('Products not fetched');
@@ -29,7 +26,7 @@ export async function getSummerCollection() {
       node {
         id
         title
-        products(first: 8) {
+        products(first: 6) {
           edges {
             node {
               id
@@ -40,13 +37,6 @@ export async function getSummerCollection() {
                   node {
                     originalSrc
                     altText
-                  }
-                }
-              }
-              variants(first: 1) {
-                edges {
-                  node {
-                    price
                   }
                 }
               }

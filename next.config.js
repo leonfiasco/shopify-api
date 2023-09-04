@@ -4,6 +4,10 @@ const nextConfig = {
 	images: {
 		domains: ['cdn.shopify.com'],
 	},
+	experimental: {
+		workerThreads: false,
+		cpus: 1,
+	},
 };
 
 module.exports = nextConfig;
