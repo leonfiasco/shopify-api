@@ -6,7 +6,6 @@ import FilterBanner from '@/app/components/FilterBanner';
 
 export default async function Summer() {
 	const data = await getSummerCollection();
-	console.log('BIG TIME CLIENT DATA 🌺', data);
 
 	return (
 		<section className={styles.summerCollectionWrap}>
