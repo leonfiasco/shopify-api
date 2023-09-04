@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import ImageTag from 'next/image';
-import { getStaticPaths } from './WomensSingle';
 import { SingleImage } from '../../../../types/index';
 import { getProductByHandle } from '../../../../utils/shopify';
 

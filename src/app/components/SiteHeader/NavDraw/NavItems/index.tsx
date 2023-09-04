@@ -24,61 +24,13 @@ const NavItems = () => {
 	};
 
 	const navItems = [
-		{ title: 'summer collection', link: '/collections/summer-collection' },
 		{ title: 'men', showArrow: true },
 		{ title: 'women', showArrow: true },
 	];
 
 	const renderNavItems = () => {
-		return navItems.map((item, i) =>
-			item.link ? (
-				<li className={styles.listItem} key={i}>
-					<Link
-						href={item.link ? item.link : ''}
-						onClick={() => setNavDrawOpen(false)}
-					>
-						<div>
-							<p onClick={() => toggle(i)}>{item.title}</p>
-							{item.showArrow && (
-								<Image
-									onClick={() => toggle(i)}
-									className={`${styles.arrow} ${
-										selected === i && isArrowDown ? styles.active : ''
-									}`}
-									src='/siteIcons/upArrow.svg'
-									alt='arrow'
-									width={17}
-									height={17}
-								/>
-							)}
-						</div>
-						{item.showArrow && (
-							<ul
-								className={`${styles.subList} ${
-									selected === i ? styles.openSublist : ''
-								}`}
-							>
-								<li>
-									<Link
-										href={'/collections/summer-collection'}
-										onClick={() => {
-											setNavDrawOpen(false);
-										}}
-									>
-										spring summer
-									</Link>
-								</li>
-
-								<li>
-									<Link href={'/collections/mens'} onClick={() => setNavDrawOpen(false)}>
-										shop all
-									</Link>
-								</li>
-							</ul>
-						)}
-					</Link>
-				</li>
-			) : (
+		return navItems.map((item, i) => (
+			<>
 				<li className={styles.listItem} key={i}>
 					<div>
 						<p onClick={() => toggle(i)}>{item.title}</p>
@@ -102,15 +54,6 @@ const NavItems = () => {
 							}`}
 						>
 							<li>
-								{' '}
-								<Link
-									href={'/collections/summer-collection'}
-									onClick={() => setNavDrawOpen(false)}
-								>
-									spring summer
-								</Link>
-							</li>
-							<li>
 								<Link
 									href={
 										item?.title === 'men' ? '/collections/mens' : '/collections/womens'
@@ -123,8 +66,8 @@ const NavItems = () => {
 						</ul>
 					)}
 				</li>
-			)
-		);
+			</>
+		));
 	};
 
 	return <ul className={styles.navList}>{renderNavItems()}</ul>;
