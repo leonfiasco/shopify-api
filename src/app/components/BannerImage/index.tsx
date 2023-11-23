@@ -9,9 +9,7 @@ const BannerImage = () => {
 				src='/images/banner.svg'
 				alt='Banner-image'
 				style={{ objectFit: 'cover' }}
-				layout='responsive'
-				width={1920}
-				height={1080}
+				fill
 			/>
 		</section>
 	);
